@@ -4,13 +4,14 @@ pipeline {
     stage('Iniciando-pipeline') {
       steps {
         sh 'echo $WORKSPACE'
-        sh 'chmod +x $WORKSPACE -R'
+        //sh 'chmod +x $WORKSPACE -R'
       }
     }
 
     stage('Check-git-secrets') {
       steps {
-        sh 'docker run ghcr.io/trufflesecurity/trufflehog:latest github --repo https://github.com/digininja/DVWA.git'
+        sh 'docker run ghcr.io/trufflesecurity/trufflehog:latest github --repo https://github.com/matiasale56789/demo-pipeline-jenkins.git'
+        //sh 'docker run ghcr.io/trufflesecurity/trufflehog:latest github --repo https://github.com/digininja/DVWA.git'
       }
     }
 
