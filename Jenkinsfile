@@ -15,6 +15,7 @@ pipeline {
 
     stage('Source-composition-analysis') {
       steps {
+        sh 'chown jcano:jcano odc-reports/ -R'
         sh 'wget https://raw.githubusercontent.com/matiasale56789/demo-pipeline-jenkins/main/owasp-sca.sh'
         sh 'chmod +x owasp-sca.sh'
         sh 'bash owasp-sca.sh'
