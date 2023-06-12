@@ -17,8 +17,8 @@ pipeline {
       steps {
         sh 'wget https://raw.githubusercontent.com/matiasale56789/demo-pipeline-jenkins/main/owasp-sca.sh'
         sh 'chmod +x owasp-sca.sh'
-        sh 'chown jcano:jcano $WORKSPACE/odc-reports/ -R'
         sh 'bash owasp-sca.sh'
+        sh 'chown jcano:jcano $WORKSPACE/odc-reports/ -R'
       }
     }
 
