@@ -4,7 +4,7 @@ pipeline {
     stage('Iniciando-pipeline') {
       steps {
         sh 'echo $WORKSPACE'
-        sh 'chwon +x $WORKSPACE -R'
+        sh 'chmod +x $WORKSPACE -R'
       }
     }
 
