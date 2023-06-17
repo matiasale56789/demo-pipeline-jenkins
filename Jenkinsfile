@@ -14,7 +14,6 @@ pipeline {
     }
 
     stage('Source-composition-analysis') {
-      agent any
       steps {
          sh 'rm owasp* || true'
         sh 'wget https://raw.githubusercontent.com/matiasale56789/demo-pipeline-jenkins/main/owasp-sca.sh'
@@ -22,6 +21,13 @@ pipeline {
         sh 'bash owasp-sca.sh'
       }
     }
-
+    stage('SAST-Sonarqube') {
+      steps {
+        withSonarQubeEnv('devsecops'){
+          sh 'mvn sonarqube:sonarqube'
+          sh 'cat target/sonarqube/report-task.txt'
+        }
+      }
+    }
   }
 }
