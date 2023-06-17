@@ -13,8 +13,6 @@ pipeline {
       }
     }
 
-
-
     stage('SAST-Sonarqube') {
       steps {
         withSonarQubeEnv('devsecops') {
