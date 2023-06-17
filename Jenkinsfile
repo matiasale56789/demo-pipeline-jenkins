@@ -15,19 +15,22 @@ pipeline {
 
     stage('Source-composition-analysis') {
       steps {
-         sh 'rm owasp* || true'
+        sh 'rm owasp* || true'
         sh 'wget https://raw.githubusercontent.com/matiasale56789/demo-pipeline-jenkins/main/owasp-sca.sh'
         sh 'chmod +x owasp-sca.sh'
         sh 'bash owasp-sca.sh'
       }
     }
+
     stage('SAST-Sonarqube') {
       steps {
-        withSonarQubeEnv('devsecops'){
+        withSonarQubeEnv('devsecops') {
           sh 'mvn sonarqube:sonarqube'
           sh 'cat target/sonarqube/report-task.txt'
         }
+
       }
     }
+
   }
 }
