@@ -9,10 +9,10 @@ pipeline {
 
     stage('Check-git-secrets') {
       steps {
-       sh 'echo $WORKSPACE'
+        sh 'echo $WORKSPACE'
       }
     }
-    
+
     stage('SAST-Sonarqube') {
       steps {
         withSonarQubeEnv('sonarqube') {
