@@ -1,7 +1,6 @@
 pipeline {
   agent any
   stages {
-    
     stage('Iniciando-pipeline') {
       steps {
         sh 'echo $WORKSPACE'
