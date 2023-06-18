@@ -9,7 +9,7 @@ pipeline {
 
     stage('Check-git-secrets') {
       steps {
-        sh 'docker run ghcr.io/trufflesecurity/trufflehog:latest github --repo https://github.com/matiasale56789/demo-pipeline-jenkins.git'
+       sh 'echo $WORKSPACE'
       }
     }
     
